@@ -1,3 +1,5 @@
-# Notion Icons
+# IconSax for Notion
 
-🚧 Work In Progress
+![Banner](./Banner.png)
+
+A personal project to use IconSax icons in Notion.

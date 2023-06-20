@@ -1,0 +1,9 @@
+{
+  "name": "notion-icons",
+  "version": "1.0.0",
+  "description": "Customized notion icons from IconSax",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Alireza Safaeirad <frontendmonster@gmail.com>",
+  "license": "MIT"
+}
