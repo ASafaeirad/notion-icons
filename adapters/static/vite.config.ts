@@ -13,7 +13,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: 'https://yoursite.qwik.dev',
+        origin: 'https://asafaeirad.github.io/notion-icons/',
       }),
     ],
   };
