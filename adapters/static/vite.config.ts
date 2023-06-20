@@ -9,12 +9,11 @@ export default extendConfig(baseConfig, () => {
       rollupOptions: {
         input: ['@qwik-city-plan'],
       },
-      outDir: './docs'
     },
     plugins: [
       staticAdapter({
-        origin: 'https://asafaeirad.github.io/',
-        base: '/notion-icons'
+        origin: 'https://asafaeirajd.github.io/',
+        base: '/notion-icons',
       }),
     ],
   };
