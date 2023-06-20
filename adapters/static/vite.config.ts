@@ -13,7 +13,8 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: 'https://asafaeirad.github.io/notion-icons/',
+        origin: 'https://asafaeirad.github.io/',
+        base: '/notion-icons'
       }),
     ],
   };
