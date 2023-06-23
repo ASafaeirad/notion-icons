@@ -6,6 +6,7 @@
   },
   "private": true,
   "scripts": {
+    "prebuild": "npm run icons",
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
@@ -19,11 +20,14 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "icons": "npx svgr --out-dir ./src/icons ./icons",
+    "prepare": "panda codegen && npm run icons"
   },
   "devDependencies": {
     "@builder.io/qwik": "1.1.5",
     "@builder.io/qwik-city": "1.1.5",
+    "@pandacss/dev": "0.4.0",
+    "@svgr/cli": "8.0.1",
     "@types/eslint": "8.40.2",
     "@types/node": "20.2.5",
     "@typescript-eslint/eslint-plugin": "5.60.0",
