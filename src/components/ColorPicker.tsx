@@ -25,9 +25,9 @@ export const ColorPicker = component$(({ value }: Props) => {
           background: 'highlight',
           borderColor: 'dark',
           fontSize: 'sm',
-          width: '110px',
-          py: '2',
-          pl: '10',
+          width: '116px',
+          py: '3',
+          pl: '12',
         })}
       />
       <input
@@ -35,7 +35,7 @@ export const ColorPicker = component$(({ value }: Props) => {
         bind:value={value}
         class={css({
           position: 'absolute',
-          left: '4px',
+          left: '8px',
         })}
       />
     </div>

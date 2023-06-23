@@ -51,8 +51,22 @@ export default component$(() => {
   );
 
   return (
-    <div>
-      <h1>Icons</h1>
+    <div
+      class={css({
+        display: 'flex',
+        alignItems: 'center',
+        flexDir: 'column',
+        py: '5rem',
+      })}
+    >
+      <h1
+        class={css({
+          fontSize: '3xl',
+          fontWeight: 'bold',
+        })}
+      >
+        Notion IconsSax
+      </h1>
       <Popup ref={ref} />
       <div
         class={css({
@@ -68,7 +82,12 @@ export default component$(() => {
         class={css({
           color: 'brand',
           display: 'grid',
-          gridTemplateColumns: 'repeat(12, auto)',
+          maxWidth: '100%',
+          gridTemplateColumns: {
+            base: 'repeat(4, 1fr)',
+            sm: 'repeat(5, 1fr)',
+            md: 'repeat(8, 1fr)',
+          },
           gap: '4',
           placeItems: 'center',
         })}
