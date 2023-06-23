@@ -1,78 +1,99 @@
-import { $, component$ } from '@builder.io/qwik';
-import { routeLoader$, type DocumentHead } from '@builder.io/qwik-city';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import type { QRL, QwikMouseEvent } from '@builder.io/qwik';
+import { $, component$, useSignal } from '@builder.io/qwik';
+import { type DocumentHead } from '@builder.io/qwik-city';
+import { css } from 'pandacss';
+import { Popup } from '~/components/Popup';
+import * as Icons from '../icons';
+import { ColorPicker } from '~/components/ColorPicker';
 
-const isRoot = (dirname: string) => {
-  const pkg = path.resolve(dirname, 'package.json');
-  return fs.existsSync(pkg) && !!JSON.parse(fs.readFileSync(pkg, 'utf-8')).name;
+const removeAttributes = (attributeList: string[], node: Element) => {
+  if (node.removeAttribute) {
+    attributeList.forEach((attr) => {
+      node.removeAttribute(attr);
+    });
+  }
+
+  if (node.childNodes)
+    node.childNodes.forEach((child) => {
+      if ('removeAttribute' in child)
+        removeAttributes(attributeList, child as Element);
+    });
 };
 
-const getRoot = () => {
-  // eslint-disable-next-line prefer-const
-  let dirname = path.dirname(fileURLToPath(import.meta.url));
+function copySvg(svg: Element) {
+  const base64 = btoa(svg.outerHTML);
+  const type = 'text/plain';
+  const blob = new Blob([`data:image/svg+xml;base64,${base64}`], { type });
+  const data = [new ClipboardItem({ [type]: blob })];
 
-  while (!isRoot(dirname) && dirname !== '/')
-    dirname = path.resolve(dirname, '..');
-
-  return dirname;
-};
-
-export const useFiles = routeLoader$(async () => {
-  // FIXME: Relative path does not work!!!
-  const root = getRoot();
-  const iconsDir = path.resolve(root, 'icons');
-
-  const files = fs.readdirSync(iconsDir);
-  const svgs = files
-    .filter((f) => path.extname(f) === '.svg')
-    .map((name) =>
-      fs.promises
-        .readFile(path.resolve(iconsDir, name), 'utf-8')
-        .then((svg) => ({ svg, name: name })),
-    );
-
-  return Promise.all(svgs);
-});
+  return navigator.clipboard.write(data);
+}
 
 export default component$(() => {
-  const svgsSignal = useFiles();
+  const color = useSignal('#ffd667');
+  const ref = useSignal<{
+    showPopup: QRL<(text: string, time?: number) => void>;
+  }>();
 
-  const handleCopy = $((text: string) => {
-    const base64 = btoa(text);
-    const type = 'text/plain';
-    const blob = new Blob([`data:image/svg+xml;base64,${base64}`], { type });
-    const data = [new ClipboardItem({ [type]: blob })];
+  const handleCopy = $(
+    (_: QwikMouseEvent<HTMLDivElement>, currentTarget: HTMLDivElement) => {
+      const svg = currentTarget.getElementsByTagName('svg')[0];
+      removeAttributes(['data-qwik-inspector', 'q:key', 'q:id'], svg);
 
-    navigator.clipboard.write(data).then(
-      () => {
-        alert('Thank you!');
-      },
-      () => {
-        alert('Shit!');
-      },
-    );
-  });
+      copySvg(svg)
+        .then(() => {
+          ref.value?.showPopup('Copied!');
+        })
+        .catch(() => {
+          ref.value?.showPopup('Oops!');
+        });
+    },
+  );
 
   return (
-    <>
+    <div>
       <h1>Icons</h1>
-      <div class="container">
-        {svgsSignal.value.map(({ svg, name }) => (
-          <button
-            onClick$={() => {
-              handleCopy(svg);
-            }}
-            class="icon-button"
-            key={name}
+      <Popup ref={ref} />
+      <div
+        class={css({
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          my: 10,
+        })}
+      >
+        <ColorPicker value={color} />
+      </div>
+      <div
+        class={css({
+          color: 'brand',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(12, auto)',
+          gap: '4',
+          placeItems: 'center',
+        })}
+      >
+        {Object.values(Icons).map((Svg, i) => (
+          <div
+            onClick$={handleCopy}
+            class={css({
+              padding: '4',
+              borderRadius: 'md',
+              transitionProperty: 'background-color',
+              transitionDuration: '300ms',
+              bg: { base: 'transparent', _hover: 'highlight' },
+              '& svg': {
+                width: '40px',
+                height: '40px',
+              },
+            })}
+            key={i}
           >
-            <div dangerouslySetInnerHTML={svg} />
-            <div>{name}</div>
-          </button>
+            <Svg color={color.value} />
+          </div>
         ))}
       </div>
-    </>
+    </div>
   );
 });
 
