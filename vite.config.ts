@@ -5,6 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(() => {
   return {
+    base: '/notion-icons',
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
     preview: {
       headers: {

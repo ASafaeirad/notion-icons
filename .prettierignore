@@ -2,7 +2,6 @@
 **/.DS_Store
 *.
 .vscode/settings.json
-.history
 .yarn
 bazel-*
 bazel-bin
@@ -28,11 +27,9 @@ build
 .rollup.cache
 dist
 tsconfig.tsbuildinfo
-vite.config.ts
-*.spec.tsx
-*.spec.ts
 .netlify
 pnpm-lock.yaml
 package-lock.json
-yarn.lock
 server
+
+doscs/
