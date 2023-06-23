@@ -1,0 +1,1 @@
+import{a as r,d as s,S as a}from"./q-1ca72397.js";import{c as o}from"./q-aa2e362f.js";const t=()=>r("main",null,{class:o({background:"dark",color:"white",minHeight:"screen"})},s(a,null,3,"h5_0"),1,"h5_1");export{t as s_q5aRC0Bsbdo};
