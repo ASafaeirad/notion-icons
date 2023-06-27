@@ -9,9 +9,10 @@ import { css } from 'pandacss';
 
 interface Props {
   ref: Signal<any>;
+  color?: string;
 }
 
-export const Popup = component$(({ ref }: Props) => {
+export const Popup = component$(({ ref, color = 'brand' }: Props) => {
   const inputRef = useSignal<Element | undefined>();
 
   useVisibleTask$(() => {
@@ -31,12 +32,12 @@ export const Popup = component$(({ ref }: Props) => {
     <div
       ref={inputRef}
       id="popup"
+      style={{ color }}
       class={css({
         background: 'highlight',
         fontWeight: '400',
         borderRadius: 'md',
         padding: 4,
-        color: 'brand',
         position: 'fixed',
         bottom: 0,
         opacity: 0,

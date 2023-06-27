@@ -1,10 +1,11 @@
 import type { QRL, QwikMouseEvent } from '@builder.io/qwik';
-import { $, component$, useSignal } from '@builder.io/qwik';
+import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { type DocumentHead } from '@builder.io/qwik-city';
 import { css } from 'pandacss';
 import { Popup } from '~/components/Popup';
 import * as Icons from '../icons';
 import { ColorPicker } from '~/components/ColorPicker';
+import { isServer } from '@builder.io/qwik/build';
 
 const removeAttributes = (attributeList: string[], node: Element) => {
   if (node.removeAttribute) {
@@ -31,6 +32,19 @@ function copySvg(svg: Element) {
 
 export default component$(() => {
   const color = useSignal('#ffd667');
+
+  useVisibleTask$(() => {
+    if (isServer) return;
+    const lastColor = window.localStorage.getItem('color');
+    if(lastColor) color.value = lastColor;
+  });
+
+  useVisibleTask$(({ track }) => {
+    track(() => color.value);
+    if (isServer) return;
+    window.localStorage.setItem('color', color.value);
+  });
+
   const ref = useSignal<{
     showPopup: QRL<(text: string, time?: number) => void>;
   }>();
@@ -67,7 +81,7 @@ export default component$(() => {
       >
         Notion IconsSax
       </h1>
-      <Popup ref={ref} />
+      <Popup color={color.value} ref={ref} />
       <div
         class={css({
           display: 'flex',
