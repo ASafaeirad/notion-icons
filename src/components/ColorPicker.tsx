@@ -24,8 +24,9 @@ export const ColorPicker = component$(({ value }: Props) => {
           borderRadius: 'md',
           background: 'highlight',
           borderColor: 'dark',
+          fontFamily: 'monospace',
           fontSize: 'sm',
-          width: '116px',
+          width: '122px',
           py: '3',
           pl: '12',
         })}
