@@ -65,6 +65,7 @@ export { default as Teacher } from './Teacher';
 export { default as Timer } from './Timer';
 export { default as Trash } from './Trash';
 export { default as Triangle } from './Triangle';
+export { default as Ts } from './Ts';
 export { default as TwoCircles } from './TwoCircles';
 export { default as UserGroup } from './UserGroup';
 export { default as UserTag } from './UserTag';
