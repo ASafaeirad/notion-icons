@@ -1,26 +1,34 @@
 import type { SvgProps } from './SvgProps';
 const SvgQuestion = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="question"
     {...props}
   >
     <path
+      d="M17 18.4301H13L8.54999 21.39C7.88999 21.83 7 21.3601 7 20.5601V18.4301C4 18.4301 2 16.4301 2 13.4301V7.42999C2 4.42999 4 2.42999 7 2.42999H17C20 2.42999 22 4.42999 22 7.42999V13.4301C22 16.4301 20 18.4301 17 18.4301Z"
       stroke="currentColor"
+      strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeMiterlimit={10}
-      d="M17 18.43h-4l-4.45 2.96A.997.997 0 0 1 7 20.56v-2.13c-3 0-5-2-5-5v-6c0-3 2-5 5-5h10c3 0 5 2 5 5v6c0 3-2 5-5 5Z"
     />
     <path
+      d="M12 11.36V11.15C12 10.47 12.42 10.11 12.84 9.82001C13.25 9.54001 13.66 9.18002 13.66 8.52002C13.66 7.60002 12.92 6.85999 12 6.85999C11.08 6.85999 10.34 7.60002 10.34 8.52002"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 11.36v-.21c0-.68.42-1.04.84-1.33.41-.28.82-.64.82-1.3 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66M11.995 13.75h.01"
+    />
+    <path
+      d="M11.9955 13.75H12.0045"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgQuestion.fileName = 'question.svg';
 export default SvgQuestion;

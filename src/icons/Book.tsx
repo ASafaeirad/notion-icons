@@ -1,25 +1,39 @@
 import type { SvgProps } from './SvgProps';
 const SvgBook = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="book"
     {...props}
   >
     <path
+      d="M3.5 18V7C3.5 3 4.5 2 8.5 2H15.5C19.5 2 20.5 3 20.5 7V17C20.5 17.14 20.5 17.28 20.49 17.42"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M3.5 18V7c0-4 1-5 5-5h7c4 0 5 1 5 5v10c0 .14 0 .28-.01.42"
     />
     <path
+      d="M6.35 15H20.5V18.5C20.5 20.43 18.93 22 17 22H7C5.07 22 3.5 20.43 3.5 18.5V17.85C3.5 16.28 4.78 15 6.35 15Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M6.35 15H20.5v3.5c0 1.93-1.57 3.5-3.5 3.5H7c-1.93 0-3.5-1.57-3.5-3.5v-.65C3.5 16.28 4.78 15 6.35 15ZM8 7h8M8 10.5h5"
+    />
+    <path
+      d="M8 7H16"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M8 10.5H13"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgBook.fileName = 'book.svg';
 export default SvgBook;

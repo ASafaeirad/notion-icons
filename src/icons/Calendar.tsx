@@ -1,20 +1,43 @@
 import type { SvgProps } from './SvgProps';
 const SvgCalendar = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="calendar"
     {...props}
   >
     <path
+      d="M8 2V5"
       stroke="currentColor"
+      strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
+    />
+    <path
+      d="M16 2V5"
+      stroke="currentColor"
       strokeMiterlimit={10}
-      d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M3.5 9.08997H20.5"
+      stroke="currentColor"
+      strokeMiterlimit={10}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+      stroke="currentColor"
+      strokeMiterlimit={10}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgCalendar.fileName = 'calendar.svg';
 export default SvgCalendar;

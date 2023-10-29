@@ -1,19 +1,39 @@
 import type { SvgProps } from './SvgProps';
 const SvgMonitor = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="monitor"
     {...props}
   >
     <path
+      d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M6.44 2h11.11C21.11 2 22 2.89 22 6.44v6.33c0 3.56-.89 4.44-4.44 4.44H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2ZM12 17.22V22M2 13h20M7.5 22h9"
+    />
+    <path
+      d="M12 17.22V22"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2 13H22"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7.5 22H16.5"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgMonitor.fileName = 'monitor.svg';
 export default SvgMonitor;

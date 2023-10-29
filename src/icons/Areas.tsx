@@ -1,20 +1,36 @@
 import type { SvgProps } from './SvgProps';
 const SvgAreas = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="areas"
     {...props}
   >
     <path
+      d="M2.45 14.97C3.52 18.41 6.4 21.06 9.98 21.79"
       stroke="currentColor"
+      strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
+    />
+    <path
+      d="M2.05 10.98C2.56 5.93 6.82 2 12 2C17.18 2 21.44 5.94 21.95 10.98"
+      stroke="currentColor"
       strokeMiterlimit={10}
-      d="M2.45 14.97c1.07 3.44 3.95 6.09 7.53 6.82M2.05 10.98A9.996 9.996 0 0 1 12 2c5.18 0 9.44 3.94 9.95 8.98M14.01 21.8c3.57-.73 6.44-3.35 7.53-6.78"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M14.01 21.8C17.58 21.07 20.45 18.45 21.54 15.02"
+      stroke="currentColor"
+      strokeMiterlimit={10}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgAreas.fileName = 'areas.svg';
 export default SvgAreas;

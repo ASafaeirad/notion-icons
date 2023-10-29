@@ -1,25 +1,27 @@
 import type { SvgProps } from './SvgProps';
 const SvgPlanet = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="planet"
     {...props}
   >
     <path
+      d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M19 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
     />
     <path
+      d="M14.02 2.2C13.36 2.07 12.69 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 11.32 21.93 10.65 21.8 10.01"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M14.02 2.2C13.36 2.07 12.69 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-.68-.07-1.35-.2-1.99"
     />
   </svg>
 );
+SvgPlanet.fileName = 'planet.svg';
 export default SvgPlanet;

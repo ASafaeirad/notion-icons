@@ -1,25 +1,27 @@
 import type { SvgProps } from './SvgProps';
 const SvgSetting = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="setting"
     {...props}
   >
     <path
+      d="M3 9.10998V14.88C3 17 3 17 5 18.35L10.5 21.53C11.33 22.01 12.68 22.01 13.5 21.53L19 18.35C21 17 21 17 21 14.89V9.10998C21 6.99998 21 6.99999 19 5.64999L13.5 2.46999C12.68 1.98999 11.33 1.98999 10.5 2.46999L5 5.64999C3 6.99999 3 6.99998 3 9.10998Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M3 9.11v5.77C3 17 3 17 5 18.35l5.5 3.18c.83.48 2.18.48 3 0l5.5-3.18c2-1.35 2-1.35 2-3.46V9.11C21 7 21 7 19 5.65l-5.5-3.18c-.82-.48-2.17-.48-3 0L5 5.65C3 7 3 7 3 9.11Z"
     />
     <path
+      d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
     />
   </svg>
 );
+SvgSetting.fileName = 'setting.svg';
 export default SvgSetting;

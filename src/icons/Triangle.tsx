@@ -1,25 +1,33 @@
 import type { SvgProps } from './SvgProps';
 const SvgTriangle = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="triangle"
     {...props}
   >
     <path
+      d="M12 21.41H5.93999C2.46999 21.41 1.01999 18.93 2.69999 15.9L5.81999 10.28L8.75999 5C10.54 1.79 13.46 1.79 15.24 5L18.18 10.29L21.3 15.91C22.98 18.94 21.52 21.42 18.06 21.42H12V21.41Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 21.41H5.94c-3.47 0-4.92-2.48-3.24-5.51l3.12-5.62L8.76 5c1.78-3.21 4.7-3.21 6.48 0l2.94 5.29 3.12 5.62c1.68 3.03.22 5.51-3.24 5.51H12v-.01Z"
     />
     <path
+      d="M21.44 20L12 13.39L2.56 20"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M21.44 20 12 13.39 2.56 20M12 3v10.39"
+    />
+    <path
+      d="M12 3V13.39"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgTriangle.fileName = 'triangle.svg';
 export default SvgTriangle;

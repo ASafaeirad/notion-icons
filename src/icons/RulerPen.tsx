@@ -1,18 +1,34 @@
 import type { SvgProps } from './SvgProps';
 const SvgRulerPen = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="ruler-pen"
     {...props}
   >
     <path
+      d="M21.47 19V5C21.47 3 20.47 2 18.47 2H14.47C12.47 2 11.47 3 11.47 5V19C11.47 21 12.47 22 14.47 22H18.47C20.47 22 21.47 21 21.47 19Z"
       stroke="currentColor"
       strokeLinecap="round"
-      d="M21.47 19V5c0-2-1-3-3-3h-4c-2 0-3 1-3 3v14c0 2 1 3 3 3h4c2 0 3-1 3-3ZM11.47 6h5M11.47 18h4M11.47 13.95l5 .05M11.47 10h3M5.49 2C3.86 2 2.53 3.33 2.53 4.95v12.96c0 .45.19 1.13.42 1.52l.82 1.36c.94 1.57 2.49 1.57 3.43 0l.82-1.36c.23-.39.42-1.07.42-1.52V4.95C8.44 3.33 7.11 2 5.49 2ZM8.44 7H2.53"
     />
+    <path d="M11.47 6H16.47" stroke="currentColor" strokeLinecap="round" />
+    <path d="M11.47 18H15.47" stroke="currentColor" strokeLinecap="round" />
+    <path
+      d="M11.47 13.95L16.47 14"
+      stroke="currentColor"
+      strokeLinecap="round"
+    />
+    <path d="M11.47 10H14.47" stroke="currentColor" strokeLinecap="round" />
+    <path
+      d="M5.49 2C3.86 2 2.53 3.33 2.53 4.95V17.91C2.53 18.36 2.72 19.04 2.95 19.43L3.77 20.79C4.71 22.36 6.26 22.36 7.2 20.79L8.02 19.43C8.25 19.04 8.44 18.36 8.44 17.91V4.95C8.44 3.33 7.11 2 5.49 2Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+    />
+    <path d="M8.44 7H2.53" stroke="currentColor" strokeLinecap="round" />
   </svg>
 );
+SvgRulerPen.fileName = 'ruler-pen.svg';
 export default SvgRulerPen;

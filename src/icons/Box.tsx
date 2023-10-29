@@ -1,25 +1,33 @@
 import type { SvgProps } from './SvgProps';
 const SvgBox = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="box"
     {...props}
   >
     <path
+      d="M3.16992 7.43994L11.9999 12.5499L20.7699 7.46994"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M3.17 7.44 12 12.55l8.77-5.08M12 21.61v-9.07"
     />
     <path
+      d="M12 21.61V12.54"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M9.93 2.48 4.59 5.44c-1.21.67-2.2 2.35-2.2 3.73v5.65c0 1.38.99 3.06 2.2 3.73l5.34 2.97c1.14.63 3.01.63 4.15 0l5.34-2.97c1.21-.67 2.2-2.35 2.2-3.73V9.17c0-1.38-.99-3.06-2.2-3.73l-5.34-2.97c-1.15-.63-3.01-.63-4.15.01Z"
+    />
+    <path
+      d="M9.92989 2.48004L4.58989 5.44004C3.37989 6.11004 2.38989 7.79004 2.38989 9.17004V14.82C2.38989 16.2 3.37989 17.88 4.58989 18.55L9.92989 21.52C11.0699 22.15 12.9399 22.15 14.0799 21.52L19.4199 18.55C20.6299 17.88 21.6199 16.2 21.6199 14.82V9.17004C21.6199 7.79004 20.6299 6.11004 19.4199 5.44004L14.0799 2.47004C12.9299 1.84004 11.0699 1.84004 9.92989 2.48004Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgBox.fileName = 'box.svg';
 export default SvgBox;

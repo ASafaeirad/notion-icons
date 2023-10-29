@@ -1,25 +1,45 @@
 import type { SvgProps } from './SvgProps';
 const SvgMic = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="mic"
     {...props}
   >
     <path
+      d="M12 15.5C14.21 15.5 16 13.71 16 11.5V6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6V11.5C8 13.71 9.79 15.5 12 15.5Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 15.5c2.21 0 4-1.79 4-4V6c0-2.21-1.79-4-4-4S8 3.79 8 6v5.5c0 2.21 1.79 4 4 4Z"
     />
     <path
+      d="M4.35001 9.65002V11.35C4.35001 15.57 7.78001 19 12 19C16.22 19 19.65 15.57 19.65 11.35V9.65002"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M4.35 9.65v1.7C4.35 15.57 7.78 19 12 19c4.22 0 7.65-3.43 7.65-7.65v-1.7M10.61 6.43c.9-.33 1.88-.33 2.78 0M11.2 8.55c.53-.14 1.08-.14 1.61 0M12 19v3"
+    />
+    <path
+      d="M10.61 6.43C11.51 6.1 12.49 6.1 13.39 6.43"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M11.2 8.55001C11.73 8.41001 12.28 8.41001 12.81 8.55001"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 19V22"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
+SvgMic.fileName = 'mic.svg';
 export default SvgMic;

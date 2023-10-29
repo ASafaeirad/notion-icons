@@ -1,30 +1,43 @@
 import type { SvgProps } from './SvgProps';
 const SvgStatusUp = (props: SvgProps) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="status-up"
     {...props}
   >
     <path
+      d="M6.87988 18.15V16.08"
       stroke="currentColor"
       strokeLinecap="round"
-      d="M6.88 18.15v-2.07M12 18.15v-4.14M17.12 18.15v-6.22M17.12 5.85l-.46.54a18.882 18.882 0 0 1-9.78 6.04"
+    />
+    <path d="M12 18.15V14.01" stroke="currentColor" strokeLinecap="round" />
+    <path
+      d="M17.1201 18.1501V11.9301"
+      stroke="currentColor"
+      strokeLinecap="round"
     />
     <path
+      d="M17.1199 5.84998L16.6599 6.38998C14.1099 9.36998 10.6899 11.48 6.87988 12.43"
+      stroke="currentColor"
+      strokeLinecap="round"
+    />
+    <path
+      d="M14.1899 5.84998H17.1199V8.76998"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M14.19 5.85h2.93v2.92"
     />
     <path
+      d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z"
     />
   </svg>
 );
+SvgStatusUp.fileName = 'status-up.svg';
 export default SvgStatusUp;

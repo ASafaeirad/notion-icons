@@ -118,7 +118,7 @@ export default component$(() => {
         })}
       >
         {Object.values(Icons).map((Svg, i) => {
-          const name = Svg.name.replace(/^Svg/, '');
+          const name = Svg.fileName.replace(/.svg$/, '');
           return (
             <div
               class={css({
