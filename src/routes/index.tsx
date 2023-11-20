@@ -54,7 +54,8 @@ export default component$(() => {
     if (currentTarget == null || currentTarget.parentElement == null)
       throw Error('Element not found');
 
-    const el = currentTarget.parentElement.getElementsByTagName('svg')[0];
+    const el = currentTarget.closest('[data-box]')!.getElementsByTagName('svg')[0];
+
     removeAttributes(['data-qwik-inspector', 'q:key', 'q:id'], el);
 
     copySvg(el)
@@ -121,6 +122,7 @@ export default component$(() => {
           const name = Svg.fileName.replace(/.svg$/, '');
           return (
             <div
+              data-box
               class={css({
                 display: 'flex',
                 flexDir: 'column',
@@ -135,7 +137,8 @@ export default component$(() => {
               style={{ color: color.value }}
               key={i}
             >
-              <Svg />
+              {/* @ts-expect-error */}
+              <Svg style={{ color: color.value }} />
               <div class={css({ mt: 2, fontSize: 'xs' })}>{name}</div>
               <div class={css({ p: 2, display: 'flex', flexDir: 'row' })}>
                 <ButtonIcon
