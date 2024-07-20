@@ -25,6 +25,7 @@ export { default as Flows } from './Flows';
 export { default as Food } from './Food';
 export { default as Fullstacks } from './Fullstacks';
 export { default as Github } from './Github';
+export { default as Glass } from './Glass';
 export { default as Global } from './Global';
 export { default as Goal } from './Goal';
 export { default as Habit } from './Habit';

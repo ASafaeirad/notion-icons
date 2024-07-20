@@ -1,41 +1,41 @@
 import type { SvgProps } from './SvgProps';
 const SvgGlobal = (props: SvgProps) => (
   <svg
-    width={25}
+    width={24}
     height={24}
-    viewBox="0 0 25 24"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     data-name="global"
     {...props}
   >
     <path
-      d="M12.411 22C17.9339 22 22.411 17.5228 22.411 12C22.411 6.47715 17.9339 2 12.411 2C6.88816 2 2.41101 6.47715 2.41101 12C2.41101 17.5228 6.88816 22 12.411 22Z"
-      stroke="currentColor"
+      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+      stroke="#AEABA4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M8.41099 3H9.41099C7.46099 8.84 7.46099 15.16 9.41099 21H8.41099"
-      stroke="currentColor"
+      d="M7.99998 3H8.99998C7.04998 8.84 7.04998 15.16 8.99998 21H7.99998"
+      stroke="#AEABA4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M15.411 3C17.361 8.84 17.361 15.16 15.411 21"
-      stroke="currentColor"
+      d="M15 3C16.95 8.84 16.95 15.16 15 21"
+      stroke="#AEABA4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M3.41101 16V15C9.25101 16.95 15.571 16.95 21.411 15V16"
-      stroke="currentColor"
+      d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16"
+      stroke="#AEABA4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M3.41101 9.00001C9.25101 7.05001 15.571 7.05001 21.411 9.00001"
-      stroke="currentColor"
+      d="M3 8.99998C8.84 7.04998 15.16 7.04998 21 8.99998"
+      stroke="#AEABA4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

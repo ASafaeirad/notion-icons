@@ -11,14 +11,14 @@ const SvgYoutube = (props: SvgProps) => (
   >
     <path
       d="M17 20H7C4 20 2 18 2 15V9C2 6 4 4 7 4H17C20 4 22 6 22 9V15C22 18 20 20 17 20Z"
-      stroke="currentColor"
+      stroke="#AEABA4"
       strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M11.4 9.5L13.9 11C14.8 11.6 14.8 12.5 13.9 13.1L11.4 14.6C10.4 15.2 9.60001 14.7 9.60001 13.6V10.6C9.60001 9.3 10.4 8.9 11.4 9.5Z"
-      stroke="currentColor"
+      d="M11.4 9.5L13.9 11C14.8 11.6 14.8 12.5 13.9 13.1L11.4 14.6C10.4 15.2 9.59998 14.7 9.59998 13.6V10.6C9.59998 9.3 10.4 8.9 11.4 9.5Z"
+      stroke="#AEABA4"
       strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
