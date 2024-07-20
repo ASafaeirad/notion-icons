@@ -76,5 +76,6 @@ export { default as UserTag } from './UserTag';
 export { default as User } from './User';
 export { default as Video } from './Video';
 export { default as Vim } from './Vim';
+export { default as WalletChange } from './WalletChange';
 export { default as Wallet } from './Wallet';
 export { default as Youtube } from './Youtube';
