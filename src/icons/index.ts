@@ -56,6 +56,7 @@ export { default as Python } from './Python';
 export { default as Question } from './Question';
 export { default as Rain } from './Rain';
 export { default as ReceiptEdit } from './ReceiptEdit';
+export { default as Receipt } from './Receipt';
 export { default as Routine } from './Routine';
 export { default as RulerPen } from './RulerPen';
 export { default as Rust } from './Rust';
