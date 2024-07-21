@@ -28,6 +28,7 @@ export { default as Github } from './Github';
 export { default as Glass } from './Glass';
 export { default as Global } from './Global';
 export { default as Goal } from './Goal';
+export { default as Gym } from './Gym';
 export { default as Habit } from './Habit';
 export { default as Heart } from './Heart';
 export { default as Home } from './Home';
