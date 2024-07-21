@@ -11,25 +11,25 @@ const SvgLines = (props: SvgProps) => (
   >
     <path
       d="M3 4.5H21"
-      stroke="#AEABA4"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M3 9.5H21"
-      stroke="#AEABA4"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M3 14.5H21"
-      stroke="#AEABA4"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M3 19.5H21"
-      stroke="#AEABA4"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

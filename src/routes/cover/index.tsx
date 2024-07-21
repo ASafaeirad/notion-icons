@@ -3,10 +3,9 @@ import { $, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { type DocumentHead } from '@builder.io/qwik-city';
 import { css } from 'pandacss';
 import { Popup } from '~/components/Popup';
-import * as Icons from '../icons';
+import * as Icons from '../../icons';
 import { ColorPicker } from '~/components/ColorPicker';
 import { isServer } from '@builder.io/qwik/build';
-import { ButtonIcon } from '~/components/ButtonIcon';
 import { Grid } from '~/components/Grid';
 
 type PopupHandler = (text: string, time?: number) => void;
@@ -25,17 +24,9 @@ const removeAttributes = (attributeList: string[], node: Element) => {
     });
 };
 
-function copySvg(svg: Element) {
-  const base64 = btoa(svg.outerHTML);
-  const type = 'text/plain';
-  const blob = new Blob([`data:image/svg+xml;base64,${base64}`], { type });
-  const data = [new ClipboardItem({ [type]: blob })];
-
-  return navigator.clipboard.write(data);
-}
-
 export default component$(() => {
   const color = useSignal('#AEABA4');
+  const bgColor = useSignal('#F3F3F3');
 
   useVisibleTask$(() => {
     if (isServer) return;
@@ -51,7 +42,7 @@ export default component$(() => {
 
   const ref = useSignal<{ showPopup: QRL<PopupHandler> }>();
 
-  const handleCopyInline = $((name: string, currentTarget: HTMLDivElement) => {
+  const handleDraw = $((name: string, currentTarget: HTMLDivElement) => {
     if (currentTarget == null || currentTarget.parentElement == null)
       throw Error('Element not found');
 
@@ -61,48 +52,56 @@ export default component$(() => {
 
     removeAttributes(['data-qwik-inspector', 'q:key', 'q:id'], el);
 
-    copySvg(el)
-      .then(() => {
-        ref.value?.showPopup(`${name} Copied!`);
-      })
-      .catch(() => {
-        ref.value?.showPopup('Oops!');
-      });
-  });
+    const outerHTML = el.outerHTML;
+    const blob = new Blob([outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+    const blobURL = URL.createObjectURL(blob);
+    const image = new Image();
+    image.src = blobURL;
 
-  const handleCopyLink = $((name: string) => {
-    const type = 'text/plain';
-    const blob = new Blob(
-      [
-        `https://raw.githubusercontent.com/ASafaeirad/notion-icons/main/icons/${name.toLowerCase()}.svg`,
-      ],
-      { type },
-    );
-    const data = [new ClipboardItem({ [type]: blob })];
-    navigator.clipboard
-      .write(data)
-      .then(() => {
-        ref.value?.showPopup(`${name} Link Copied!`);
-      })
-      .catch(() => {
-        ref.value?.showPopup('Oops!');
-      });
+    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+    const width = canvas.width;
+    const height = canvas.height;
+    const ctx = canvas.getContext('2d')!;
+    document.body.appendChild(image);
+    ctx.fillStyle = bgColor.value;
+    ctx.fillRect(0, 0, width, height);
+    image.addEventListener('load', () => {
+      ctx.drawImage(image, (width - 312) / 2, (height - 312) / 2, 312, 312);
+
+      const png = canvas.toDataURL();
+      const link = document.createElement('a');
+      link.download = name;
+      link.style.opacity = '0';
+      document.body.append(link);
+      link.href = png;
+      link.click();
+      link.remove();
+    });
   });
 
   return (
     <div
       class={css({ display: 'flex', alignItems: 'center', flexDir: 'column' })}
     >
+      <canvas
+        class={css({ display: 'none' })}
+        id="container"
+        width="1992"
+        height="800"
+      ></canvas>
+
       <Popup color={color.value} ref={ref} />
       <div
         class={css({
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
+          gap: 8,
           my: 10,
         })}
       >
         <ColorPicker label="Color" value={color} />
+        <ColorPicker label="BG Color" value={bgColor} />
       </div>
       <Grid>
         {Object.values(Icons).map((Svg, i) => {
@@ -110,6 +109,7 @@ export default component$(() => {
           return (
             <div
               data-box
+              onClick$={$((_: any, target: any) => handleDraw(name, target))}
               class={css({
                 display: 'flex',
                 flexDir: 'column',
@@ -127,20 +127,6 @@ export default component$(() => {
               {/* @ts-expect-error */}
               <Svg style={{ color: color.value }} />
               <div class={css({ mt: 2, fontSize: 'xs' })}>{name}</div>
-              <div class={css({ p: 2, display: 'flex', flexDir: 'row' })}>
-                <ButtonIcon
-                  onClick$={$((_: any, target: any) =>
-                    handleCopyInline(name, target),
-                  )}
-                >
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </ButtonIcon>
-                <ButtonIcon onClick$={$(() => handleCopyLink(name))}>
-                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                </ButtonIcon>
-              </div>
             </div>
           );
         })}

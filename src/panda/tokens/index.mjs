@@ -1324,7 +1324,7 @@ const tokens = {
     "variable": "var(--colors-slate-900)"
   },
   "colors.brand": {
-    "value": "rgb(255, 214, 103)",
+    "value": "rgb(174, 171, 164)",
     "variable": "var(--colors-brand)"
   },
   "colors.highlight": {

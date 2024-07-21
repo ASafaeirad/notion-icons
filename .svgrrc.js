@@ -12,7 +12,7 @@ module.exports = {
   },
   jsxRuntime: 'automatic',
   typescript: true,
-  replaceAttrValues: { '#FFD667': 'currentColor' },
+  replaceAttrValues: { '#AEABA4': 'currentColor' },
   svgoConfig: {
     plugins: [
       {

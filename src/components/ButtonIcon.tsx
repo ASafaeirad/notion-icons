@@ -1,16 +1,16 @@
 import type { QwikJSX } from '@builder.io/qwik';
 import { css } from '~/panda/css';
 
-
 // type x = ButtonHTMLAttributes<HTMLButtonElement>
 interface Props {
   children: QwikJSX.Element | QwikJSX.Element[];
-  onClick$: any
+  onClick$: any;
 }
 
-export const ButtonIcon = (props: Props) => {
+export const ButtonIcon = ({ onClick$, ...props }: Props) => {
   return (
     <button
+      onClick$={onClick$}
       class={css({
         stroke: 'rgb(255 255 255 / .3)',
         borderRadius: 4,
