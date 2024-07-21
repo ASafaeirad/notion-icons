@@ -11,9 +11,7 @@ export default extendConfig(baseConfig, () => {
       },
     },
     plugins: [
-      staticAdapter({
-        origin: 'https://asafaeirajd.github.io/notion-icons',
-      }),
+      staticAdapter({ origin: 'https://asafaeirajd.github.io/notion-icons' }),
     ],
   };
 });
