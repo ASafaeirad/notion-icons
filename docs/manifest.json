@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Notion Icons",
+  "short_name": "Notion Icons",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Icon set for Notion pages"
+}
