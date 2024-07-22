@@ -62,7 +62,6 @@ export default component$(() => {
     const width = canvas.width;
     const height = canvas.height;
     const ctx = canvas.getContext('2d')!;
-    document.body.appendChild(image);
     ctx.fillStyle = bgColor.value;
     ctx.fillRect(0, 0, width, height);
     image.addEventListener('load', () => {
