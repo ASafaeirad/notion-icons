@@ -21,7 +21,7 @@ export default function (opts: RenderToStreamOptions) {
   return renderToStream(<Root />, {
     manifest,
     ...opts,
-    base: '/build/notion-icons',
+    base: '/notion-icons/build',
     containerAttributes: {
       lang: 'en-us',
       ...opts.containerAttributes,
