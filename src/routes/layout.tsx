@@ -37,10 +37,10 @@ export default component$(() => {
           Notion IconsSax
         </h1>
         <div class={css({ display: 'flex', alignItems: 'center', gap: 6 })}>
-          <NavLink prefetch={false} href="/">
+          <NavLink prefetch={false} href="/notion-icons">
             Icons
           </NavLink>
-          <NavLink prefetch={false} href="/cover">
+          <NavLink prefetch={false} href="/notion-icons/cover">
             Cover Generator
           </NavLink>
         </div>
