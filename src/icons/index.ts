@@ -49,6 +49,7 @@ export { default as Lua } from './Lua';
 export { default as MenuBoard } from './MenuBoard';
 export { default as Messages } from './Messages';
 export { default as Mic } from './Mic';
+export { default as Microphone } from './Microphone';
 export { default as MonitorMobile } from './MonitorMobile';
 export { default as Monitor } from './Monitor';
 export { default as More } from './More';
