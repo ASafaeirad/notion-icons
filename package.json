@@ -16,7 +16,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "icons": "npx svgr --out-dir ./src/icons ./icons",
+    "icons": "npx svgr --out-dir ./src/icons ./icons && prettier ./src/icons/*.tsx --write",
     "prepare": "panda codegen && npm run icons"
   },
   "devDependencies": {
@@ -27,12 +27,12 @@
     "@svgr/cli": "8.0.1",
     "@types/eslint": "8.40.2",
     "@types/node": "20.2.5",
-    "@typescript-eslint/eslint-plugin": "5.60.0",
-    "@typescript-eslint/parser": "5.60.0",
-    "eslint": "8.43.0",
-    "eslint-plugin-qwik": "1.1.5",
+    "@typescript-eslint/eslint-plugin": "7.17.0",
+    "@typescript-eslint/parser": "7.17.0",
+    "eslint": "8",
+    "eslint-plugin-qwik": "1.7.1",
     "prettier": "2.8.8",
-    "typescript": "5.1.3",
+    "typescript": "5.5.4",
     "undici": "6.19.2",
     "vite": "5.3.4",
     "vite-tsconfig-paths": "4.3.2"

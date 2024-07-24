@@ -12,7 +12,19 @@ module.exports = {
   },
   jsxRuntime: 'automatic',
   typescript: true,
-  replaceAttrValues: { '#AEABA4': 'currentColor' },
+  plugins: [
+    '@svgr/plugin-jsx',
+    (code) =>
+      code
+        .replace(/strokeLinecap/g, 'stroke-linecap')
+        .replace(/strokeLinejoin/g, 'stroke-linejoin')
+        .replace(/strokeMiterlimit/g, 'stroke-miterlimit')
+        .replace(/strokeWidth/g, 'stroke-width')
+        .replace(/\{(\d+)\}/g, (_, group) => `"${group}"`),
+  ],
+  replaceAttrValues: {
+    '#AEABA4': 'currentColor',
+  },
   svgoConfig: {
     plugins: [
       {
