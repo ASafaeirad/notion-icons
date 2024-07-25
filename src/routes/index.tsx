@@ -12,17 +12,14 @@ import { Grid } from '~/components/Grid';
 type PopupHandler = (text: string, time?: number) => void;
 
 const removeAttributes = (attributeList: string[], node: Element) => {
-  if (node.removeAttribute) {
-    attributeList.forEach((attr) => {
-      node.removeAttribute(attr);
-    });
-  }
+  attributeList.forEach((attr) => {
+    node.removeAttribute(attr);
+  });
 
-  if (node.childNodes)
-    node.childNodes.forEach((child) => {
-      if ('removeAttribute' in child)
-        removeAttributes(attributeList, child as Element);
-    });
+  node.childNodes.forEach((child) => {
+    if ('removeAttribute' in child)
+      removeAttributes(attributeList, child as Element);
+  });
 };
 
 function copySvg(svg: Element) {
@@ -52,8 +49,7 @@ export default component$(() => {
   const ref = useSignal<{ showPopup: QRL<PopupHandler> }>();
 
   const handleCopyInline = $((name: string, currentTarget: HTMLDivElement) => {
-    if (currentTarget == null || currentTarget.parentElement == null)
-      throw Error('Element not found');
+    if (currentTarget.parentElement == null) throw Error('Element not found');
 
     const el = currentTarget
       .closest('[data-box]')!
