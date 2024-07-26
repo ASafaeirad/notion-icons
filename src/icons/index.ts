@@ -5,6 +5,7 @@ export { default as ArchiveBook } from './ArchiveBook';
 export { default as Areas } from './Areas';
 export { default as Attach } from './Attach';
 export { default as Award } from './Award';
+export { default as Bath } from './Bath';
 export { default as Book } from './Book';
 export { default as Bookmark } from './Bookmark';
 export { default as Box } from './Box';
