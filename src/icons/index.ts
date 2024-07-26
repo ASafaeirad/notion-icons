@@ -12,6 +12,7 @@ export { default as Branch } from './Branch';
 export { default as Briefcase } from './Briefcase';
 export { default as Broom } from './Broom';
 export { default as Calendar } from './Calendar';
+export { default as Cat } from './Cat';
 export { default as Chart } from './Chart';
 export { default as Check } from './Check';
 export { default as Cloud } from './Cloud';
