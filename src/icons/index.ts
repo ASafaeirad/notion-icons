@@ -72,6 +72,7 @@ export { default as Receipt } from './Receipt';
 export { default as Routine } from './Routine';
 export { default as RulerPen } from './RulerPen';
 export { default as Rust } from './Rust';
+export { default as Send } from './Send';
 export { default as Setting } from './Setting';
 export { default as Slack } from './Slack';
 export { default as StatusUp } from './StatusUp';
