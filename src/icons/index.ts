@@ -28,6 +28,7 @@ export { default as Emacs } from './Emacs';
 export { default as Environment } from './Environment';
 export { default as Eslint } from './Eslint';
 export { default as Estateguru } from './Estateguru';
+export { default as Eye } from './Eye';
 export { default as Flake } from './Flake';
 export { default as Flash } from './Flash';
 export { default as Flows } from './Flows';
