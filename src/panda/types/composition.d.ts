@@ -1,13 +1,13 @@
 /* eslint-disable */
-import type { CompositionStyleObject } from './system-types'
+import type {  CompositionStyleObject  } from './system-types';
 
-type Recursive<T> = {
-  [key: string]: Recursive<T> | T
+interface Token<T> {
+  value: T
+  description?: string
 }
 
-export type Token<Value = any> = {
-  value: Value
-  description?: string
+interface Recursive<T> {
+  [key: string]: Recursive<T> | T
 }
 
 /* -----------------------------------------------------------------------------
@@ -15,34 +15,61 @@ export type Token<Value = any> = {
  * -----------------------------------------------------------------------------*/
 
 type TextStyleProperty =
+  | 'font'
+  | 'fontFamily'
+  | 'fontFeatureSettings'
+  | 'fontKerning'
+  | 'fontLanguageOverride'
+  | 'fontOpticalSizing'
+  | 'fontPalette'
   | 'fontSize'
   | 'fontSizeAdjust'
-  | 'fontVariationSettings'
-  | 'fontVariantPosition'
-  | 'fontVariantCaps'
-  | 'fontVariantNumeric'
-  | 'fontVariantAlternates'
-  | 'fontVariantLigatures'
-  | 'fontFamily'
-  | 'fontWeight'
-  | 'fontSynthesis'
+  | 'fontStretch'
   | 'fontStyle'
+  | 'fontSynthesis'
   | 'fontVariant'
-  | 'lineHeight'
+  | 'fontVariantAlternates'
+  | 'fontVariantCaps'
+  | 'fontVariantLigatures'
+  | 'fontVariantNumeric'
+  | 'fontVariantPosition'
+  | 'fontVariationSettings'
+  | 'fontWeight'
+  | 'hypens'
+  | 'hyphenateCharacter'
+  | 'hyphenateLimitChars'
   | 'letterSpacing'
+  | 'lineBreak'
+  | 'lineHeight'
+  | 'quotes'
+  | 'overflowWrap'
+  | 'textCombineUpright'
   | 'textDecoration'
-  | 'textTransform'
-  | 'textIndent'
   | 'textDecorationColor'
   | 'textDecorationLine'
+  | 'textDecorationSkipInk'
   | 'textDecorationStyle'
+  | 'textDecorationThickness'
+  | 'textEmphasis'
   | 'textEmphasisColor'
   | 'textEmphasisPosition'
   | 'textEmphasisStyle'
-  | 'hyphenateCharacter'
+  | 'textIndent'
+  | 'textJustify'
   | 'textOrientation'
   | 'textOverflow'
   | 'textRendering'
+  | 'textShadow'
+  | 'textTransform'
+  | 'textUnderlineOffset'
+  | 'textUnderlinePosition'
+  | 'textWrap'
+  | 'textWrapMode'
+  | 'textWrapStyle'
+  | 'verticalAlign'
+  | 'whiteSpace'
+  | 'wordBreak'
+  | 'wordSpacing'
 
 export type TextStyle = CompositionStyleObject<TextStyleProperty>
 
@@ -105,7 +132,33 @@ export type LayerStyle = CompositionStyleObject<LayerStyleProperty>
 
 export type LayerStyles = Recursive<Token<LayerStyle>>
 
-export type CompositionStyles = {
+/* -----------------------------------------------------------------------------
+ * Motion styles
+ * -----------------------------------------------------------------------------*/
+
+type AnimationStyleProperty =
+  | 'animation'
+  | 'animationComposition'
+  | 'animationDelay'
+  | 'animationDirection'
+  | 'animationDuration'
+  | 'animationFillMode'
+  | 'animationIterationCount'
+  | 'animationName'
+  | 'animationPlayState'
+  | 'animationTimingFunction'
+  | 'animationRange'
+  | 'animationRangeStart'
+  | 'animationRangeEnd'
+  | 'animationTimeline'
+  | 'transformOrigin'
+
+export type AnimationStyle = CompositionStyleObject<AnimationStyleProperty>
+
+export type AnimationStyles = Recursive<Token<AnimationStyle>>
+
+export interface CompositionStyles {
   textStyles: TextStyles
   layerStyles: LayerStyles
+  animationStyles: AnimationStyles
 }

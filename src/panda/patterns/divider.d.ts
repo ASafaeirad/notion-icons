@@ -1,17 +1,22 @@
 /* eslint-disable */
-import type { SystemStyleObject, ConditionalValue } from '../types'
-import type { PropertyValue } from '../types/prop-type'
-import type { Properties } from '../types/csstype'
-import type { Tokens } from '../tokens'
+import type { SystemStyleObject, ConditionalValue } from '../types/index';
+import type { Properties } from '../types/csstype';
+import type { SystemProperties } from '../types/style-props';
+import type { DistributiveOmit } from '../types/system-types';
+import type { Tokens } from '../tokens/index';
 
-export type DividerProperties = {
+export interface DividerProperties {
    orientation?: ConditionalValue<"horizontal" | "vertical">
 	thickness?: ConditionalValue<Tokens["sizes"] | Properties["borderWidth"]>
 	color?: ConditionalValue<Tokens["colors"] | Properties["borderColor"]>
 }
 
+interface DividerStyles extends DividerProperties, DistributiveOmit<SystemStyleObject, keyof DividerProperties > {}
 
-type DividerOptions = DividerProperties & Omit<SystemStyleObject, keyof DividerProperties >
+interface DividerPatternFn {
+  (styles?: DividerStyles): string
+  raw: (styles?: DividerStyles) => SystemStyleObject
+}
 
 
-export declare function divider(options?: DividerOptions): string
+export declare const divider: DividerPatternFn;

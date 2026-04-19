@@ -1,15 +1,20 @@
 /* eslint-disable */
-import type { SystemStyleObject, ConditionalValue } from '../types'
-import type { PropertyValue } from '../types/prop-type'
-import type { Properties } from '../types/csstype'
-import type { Tokens } from '../tokens'
+import type { SystemStyleObject, ConditionalValue } from '../types/index';
+import type { Properties } from '../types/csstype';
+import type { SystemProperties } from '../types/style-props';
+import type { DistributiveOmit } from '../types/system-types';
+import type { Tokens } from '../tokens/index';
 
-export type ContainerProperties = {
+export interface ContainerProperties {
    
 }
 
+interface ContainerStyles extends ContainerProperties, DistributiveOmit<SystemStyleObject, keyof ContainerProperties > {}
 
-type ContainerOptions = ContainerProperties & Omit<SystemStyleObject, keyof ContainerProperties >
+interface ContainerPatternFn {
+  (styles?: ContainerStyles): string
+  raw: (styles?: ContainerStyles) => SystemStyleObject
+}
 
 
-export declare function container(options?: ContainerOptions): string
+export declare const container: ContainerPatternFn;

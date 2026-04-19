@@ -1,15 +1,20 @@
 /* eslint-disable */
-import type { SystemStyleObject, ConditionalValue } from '../types'
-import type { PropertyValue } from '../types/prop-type'
-import type { Properties } from '../types/csstype'
-import type { Tokens } from '../tokens'
+import type { SystemStyleObject, ConditionalValue } from '../types/index';
+import type { Properties } from '../types/csstype';
+import type { SystemProperties } from '../types/style-props';
+import type { DistributiveOmit } from '../types/system-types';
+import type { Tokens } from '../tokens/index';
 
-export type CircleProperties = {
-   size?: PropertyValue<'width'>
+export interface CircleProperties {
+   size?: SystemProperties["width"]
+}
+
+interface CircleStyles extends CircleProperties, DistributiveOmit<SystemStyleObject, keyof CircleProperties > {}
+
+interface CirclePatternFn {
+  (styles?: CircleStyles): string
+  raw: (styles?: CircleStyles) => SystemStyleObject
 }
 
 
-type CircleOptions = CircleProperties & Omit<SystemStyleObject, keyof CircleProperties >
-
-
-export declare function circle(options?: CircleOptions): string
+export declare const circle: CirclePatternFn;

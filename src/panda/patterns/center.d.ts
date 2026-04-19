@@ -1,15 +1,20 @@
 /* eslint-disable */
-import type { SystemStyleObject, ConditionalValue } from '../types'
-import type { PropertyValue } from '../types/prop-type'
-import type { Properties } from '../types/csstype'
-import type { Tokens } from '../tokens'
+import type { SystemStyleObject, ConditionalValue } from '../types/index';
+import type { Properties } from '../types/csstype';
+import type { SystemProperties } from '../types/style-props';
+import type { DistributiveOmit } from '../types/system-types';
+import type { Tokens } from '../tokens/index';
 
-export type CenterProperties = {
+export interface CenterProperties {
    inline?: ConditionalValue<boolean>
 }
 
+interface CenterStyles extends CenterProperties, DistributiveOmit<SystemStyleObject, keyof CenterProperties > {}
 
-type CenterOptions = CenterProperties & Omit<SystemStyleObject, keyof CenterProperties >
+interface CenterPatternFn {
+  (styles?: CenterStyles): string
+  raw: (styles?: CenterStyles) => SystemStyleObject
+}
 
 
-export declare function center(options?: CenterOptions): string
+export declare const center: CenterPatternFn;

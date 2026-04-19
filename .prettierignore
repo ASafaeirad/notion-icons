@@ -33,3 +33,6 @@ package-lock.json
 server
 
 doscs/
+
+# Panda CSS
+src/styled-system

@@ -1,18 +1,23 @@
 /* eslint-disable */
-import type { SystemStyleObject, ConditionalValue } from '../types'
-import type { PropertyValue } from '../types/prop-type'
-import type { Properties } from '../types/csstype'
-import type { Tokens } from '../tokens'
+import type { SystemStyleObject, ConditionalValue } from '../types/index';
+import type { Properties } from '../types/csstype';
+import type { SystemProperties } from '../types/style-props';
+import type { DistributiveOmit } from '../types/system-types';
+import type { Tokens } from '../tokens/index';
 
-export type FloatProperties = {
+export interface FloatProperties {
    offsetX?: ConditionalValue<Tokens["spacing"] | Properties["left"]>
 	offsetY?: ConditionalValue<Tokens["spacing"] | Properties["top"]>
 	offset?: ConditionalValue<Tokens["spacing"] | Properties["top"]>
 	placement?: ConditionalValue<"bottom-end" | "bottom-start" | "top-end" | "top-start" | "bottom-center" | "top-center" | "middle-center" | "middle-end" | "middle-start">
 }
 
+interface FloatStyles extends FloatProperties, DistributiveOmit<SystemStyleObject, keyof FloatProperties > {}
 
-type FloatOptions = FloatProperties & Omit<SystemStyleObject, keyof FloatProperties >
+interface FloatPatternFn {
+  (styles?: FloatStyles): string
+  raw: (styles?: FloatStyles) => SystemStyleObject
+}
 
 
-export declare function float(options?: FloatOptions): string
+export declare const float: FloatPatternFn;

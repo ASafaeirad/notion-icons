@@ -85,6 +85,7 @@ export { default as Sun } from './Sun';
 export { default as TaskSquare } from './TaskSquare';
 export { default as Teacher } from './Teacher';
 export { default as Telescope } from './Telescope';
+export { default as Terraform } from './Terraform';
 export { default as Timer } from './Timer';
 export { default as Trash } from './Trash';
 export { default as Triangle } from './Triangle';
